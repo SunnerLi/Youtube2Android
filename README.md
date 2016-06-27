@@ -17,4 +17,5 @@ Usage
       
 Notice    
 -------------------------
+* Run install.sh to install **first**
 * If you didn't seen the song that have sent to your phone, try to reboot your phone!

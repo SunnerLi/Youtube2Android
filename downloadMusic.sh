@@ -1,5 +1,4 @@
-# youtube-dl -x --audio-format "mp3" https://www.youtube.com/watch?v=hT_nvWreIhg
-# sudo apt-get install android-tools-adb
+# Simple script written by SunnerLi in 2016/06
 
 # 創建工作資料夾
 downloadFolder="temp"
