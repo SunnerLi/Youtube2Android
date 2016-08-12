@@ -5,3 +5,6 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 # install adb
 sudo apt-get update
 sudo apt-get install android-tools-adb
+
+# install other dependencies
+sudo apt-get install -y libav-tools
