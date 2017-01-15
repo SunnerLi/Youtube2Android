@@ -1,4 +1,5 @@
-# encoding=utf8  
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import os
 import json
@@ -17,7 +18,11 @@ sys.setdefaultencoding('utf8')
 
 songs = {"song":
         [
-            
+            {
+                "name": "song name 1",
+                "url": "https://www.youtube.com/watch?v=EYl714wFeJM",
+                "status": "not finish"
+            },
             {
                 "name": "song name 2",
                 "url": "https://www.youtube.com/watch?v=3UuaQ-7hNiQ",
@@ -59,10 +64,28 @@ def download():
         # Revised the json
         fileName = diff(afterDir, originDir)
         if not fileName == None:
-            songs["song"][i]['name'] = fileName
+            songs["song"][i]['name'] = removeHashCode(fileName)
             songs["song"][i]['status'] = "Done"
-    print songs
+
+def removeHashCode(__string):
+    for i in range(len(__string)-1, 0, -1):
+        if __string[i] == '-':
+            __string = __string[:i] + __string[-4:]
+            return str(__string).decode('string_escape')
+
+def printTable():
+    global songs
+
+    attributes = "Song Name".ljust(50) + " | URL".ljust(60) + " | Status\t\t"
+    print attributes
+    print "-" * 51 + "+" + "-" * 57 + "+" + "-" * 20
+    rows = ""
+    for i in range(len(songs["song"])):
+        rows = rows + songs["song"][i]["name"].ljust(50) + " | " \
+                    + songs["song"][i]["url"].ljust(57) + " | "  \
+                    + songs["song"][i]["status"] + "\n"
+    print rows 
         
-readFile()
+#readFile()
 download()
-#print os.listdir('.')
+printTable()
